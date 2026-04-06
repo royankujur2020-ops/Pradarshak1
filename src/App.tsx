@@ -65,11 +65,14 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="w-64 h-64 mx-auto relative">
+              <div className="w-64 h-64 mx-auto relative flex items-center justify-center">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
                   alt="AICUF Logo" 
-                  className="w-full h-full object-contain grayscale brightness-0"
+                  className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://api.dicebear.com/7.x/initials/svg?seed=AICUF&backgroundColor=10b981&textColor=ffffff";
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -104,7 +107,10 @@ export default function App() {
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
                 alt="AICUF Logo" 
-                className="w-16 h-16 object-contain grayscale opacity-50"
+                className="w-16 h-16 object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://api.dicebear.com/7.x/initials/svg?seed=AICUF&backgroundColor=10b981&textColor=ffffff";
+                }}
                 referrerPolicy="no-referrer"
               />
             </div>
