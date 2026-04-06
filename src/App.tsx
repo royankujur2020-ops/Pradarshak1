@@ -65,25 +65,20 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="w-48 h-48 mx-auto relative">
-                {/* AICUF Logo Placeholder - User should replace src with actual logo URL */}
+              <div className="w-64 h-64 mx-auto relative">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
                   alt="AICUF Logo" 
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    // Fallback if the URL above doesn't work
-                    (e.target as HTMLImageElement).src = "https://picsum.photos/seed/aicuf/400/400";
-                  }}
+                  className="w-full h-full object-contain grayscale brightness-0"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-emerald-600 uppercase tracking-[0.3em]">Presented By</p>
-                <h2 className="text-3xl font-black tracking-tighter text-[#1a1a1a]">
+                <h2 className="text-4xl font-black tracking-tighter text-[#1a1a1a]">
                   AICUF STUDENTS
                 </h2>
-                <p className="text-lg font-medium text-[#8e9299]">OF NBSXC</p>
+                <p className="text-xl font-medium text-[#8e9299]">OF NBSXC</p>
               </div>
             </motion.div>
             
@@ -102,8 +97,18 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="max-w-2xl mx-auto px-6 pt-20 pb-32 space-y-12"
+            className="max-w-2xl mx-auto px-6 pt-12 pb-32 space-y-12"
           >
+            {/* Header with Logo */}
+            <div className="flex justify-center mb-4">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
+                alt="AICUF Logo" 
+                className="w-16 h-16 object-contain grayscale opacity-50"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
             {/* Hero Section */}
             <header className="space-y-6 text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-bold uppercase tracking-widest">
