@@ -93,7 +93,7 @@ export default function ExplanationView({ explanation, image, onBack, language }
         {/* Footer Credit */}
         <footer className="text-center pt-12 pb-8">
           <p className="text-xs font-medium text-[#8e9299] tracking-widest uppercase">
-            Made with ❤️ by <span className="text-[#1a1a1a] font-bold">NBSXC Students</span>
+            Made with ❤️ by <span className="text-[#1a1a1a] font-bold">AICUF Students of NBSXC</span>
           </p>
         </footer>
       </main>

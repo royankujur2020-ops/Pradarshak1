@@ -6,15 +6,24 @@ import ExplanationView from './components/ExplanationView';
 import { explainProblem } from './services/geminiService';
 import { cn } from './lib/utils';
 
-type AppState = 'landing' | 'scanning' | 'loading' | 'explanation';
+type AppState = 'splash' | 'landing' | 'scanning' | 'loading' | 'explanation';
 type Language = 'English' | 'Bengali' | 'Nepali';
 
 export default function App() {
-  const [state, setState] = useState<AppState>('landing');
+  const [state, setState] = useState<AppState>('splash');
   const [language, setLanguage] = useState<Language>('English');
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [explanation, setExplanation] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (state === 'splash') {
+      const timer = setTimeout(() => {
+        setState('landing');
+      }, 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
 
   const handleCapture = async (image: string) => {
     setCapturedImage(image);
@@ -42,6 +51,51 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#fdfcf9] font-sans selection:bg-emerald-200">
       <AnimatePresence mode="wait">
+        {state === 'splash' && (
+          <motion.div
+            key="splash"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+            className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-8 text-center"
+          >
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="space-y-8"
+            >
+              <div className="w-48 h-48 mx-auto relative">
+                {/* AICUF Logo Placeholder - User should replace src with actual logo URL */}
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
+                  alt="AICUF Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    // Fallback if the URL above doesn't work
+                    (e.target as HTMLImageElement).src = "https://picsum.photos/seed/aicuf/400/400";
+                  }}
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="space-y-2">
+                <p className="text-sm font-bold text-emerald-600 uppercase tracking-[0.3em]">Presented By</p>
+                <h2 className="text-3xl font-black tracking-tighter text-[#1a1a1a]">
+                  AICUF STUDENTS
+                </h2>
+                <p className="text-lg font-medium text-[#8e9299]">OF NBSXC</p>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 1, duration: 2, ease: "easeInOut" }}
+              className="absolute bottom-20 left-1/2 -translate-x-1/2 w-32 h-1 bg-emerald-500 origin-left rounded-full"
+            />
+          </motion.div>
+        )}
+
         {state === 'landing' && (
           <motion.div 
             key="landing"
@@ -126,7 +180,7 @@ export default function App() {
             {/* Footer Credit */}
             <footer className="text-center pt-8 border-t border-[#e5e5e0]">
               <p className="text-sm font-medium text-[#8e9299] tracking-widest uppercase">
-                Made with ❤️ by <span className="text-[#1a1a1a] font-bold">NBSXC Students</span>
+                Made with ❤️ by <span className="text-[#1a1a1a] font-bold">AICUF Students of NBSXC</span>
               </p>
             </footer>
           </motion.div>
