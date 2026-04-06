@@ -1,0 +1,5 @@
+{
+  "name": "Pradarshak",
+  "description": "The Visual Mentor: An offline-first OCR tutor for rural students that explains textbook diagrams and problems using local metaphors.",
+  "requestFramePermissions": ["camera"]
+}
