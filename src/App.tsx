@@ -67,7 +67,7 @@ export default function App() {
             >
               <div className="w-64 h-64 mx-auto relative flex items-center justify-center">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0q7ZdQjxXx2bmydYiz2q0W7r3RwXCplO-w&s" 
                   alt="AICUF Logo" 
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
@@ -105,7 +105,7 @@ export default function App() {
             {/* Header with Logo */}
             <div className="flex justify-center mb-4">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_AICUF.png/600px-Logo_AICUF.png" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0q7ZdQjxXx2bmydYiz2q0W7r3RwXCplO-w&s" 
                 alt="AICUF Logo" 
                 className="w-16 h-16 object-contain"
                 onError={(e) => {
